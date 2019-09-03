@@ -68,8 +68,8 @@ where
 {
 	let mut wallet_outputs: Vec<OutputResult> = Vec::new();
 
-	warn!(
-		"Scanning {} outputs in the current Grin utxo set",
+	println!(
+		"Scanning {} outputs in the current Forest utxo set",
 		outputs.len(),
 	);
 
@@ -126,7 +126,7 @@ where
 		let (highest_index, last_retrieved_index, outputs) = wallet
 			.w2n_client()
 			.get_outputs_by_pmmr_index(start_index, batch_size)?;
-		warn!(
+		println!(
 			"Checking {} outputs, up to index {}. (Highest index: {})",
 			outputs.len(),
 			highest_index,
@@ -274,7 +274,8 @@ where
 	K: Keychain,
 {
 	// First, get a definitive list of outputs we own from the chain
-	warn!("Starting wallet check.");
+	//warn!("Starting wallet check.");
+	println!("Starting wallet check.");
 	let chain_outs = collect_chain_outputs(wallet)?;
 	warn!(
 		"Identified {} wallet_outputs as belonging to this wallet",

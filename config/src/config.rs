@@ -34,7 +34,7 @@ use crate::util::LoggingConfig;
 /// Wallet configuration file name
 pub const WALLET_CONFIG_FILE_NAME: &'static str = "grin-wallet.toml";
 const WALLET_LOG_FILE_NAME: &'static str = "grin-wallet.log";
-const GRIN_HOME: &'static str = ".grin";
+const GRIN_HOME: &'static str = ".forest";
 /// Wallet data directory
 pub const GRIN_WALLET_DIR: &'static str = "wallet_data";
 /// API secret
@@ -163,12 +163,12 @@ impl GlobalWalletConfig {
 		match *chain_type {
 			global::ChainTypes::Mainnet => {}
 			global::ChainTypes::Floonet => {
-				defaults.api_listen_port = 13415;
-				defaults.check_node_api_http_addr = "http://127.0.0.1:13413".to_owned();
+				defaults.api_listen_port = 53415;
+				defaults.check_node_api_http_addr = "http://156.237.29.17:53413".to_owned();
 			}
 			global::ChainTypes::UserTesting => {
-				defaults.api_listen_port = 23415;
-				defaults.check_node_api_http_addr = "http://127.0.0.1:23413".to_owned();
+				defaults.api_listen_port = 53415;
+				defaults.check_node_api_http_addr = "http://156.237.29.17:53413".to_owned();
 			}
 			global::ChainTypes::AutomatedTesting => {
 				panic!("Can't run automated testing directly");
@@ -229,7 +229,7 @@ impl GlobalWalletConfig {
 			wallet_path.to_str().unwrap().to_owned();
 		let mut secret_path = wallet_home.clone();
 		secret_path.push(API_SECRET_FILE_NAME);
-		self.members.as_mut().unwrap().wallet.api_secret_path =
+		self.members.as_mut().unwrap().wallet.api_secret_path = 
 			Some(secret_path.to_str().unwrap().to_owned());
 		let mut node_secret_path = wallet_home.clone();
 		node_secret_path.push(API_SECRET_FILE_NAME);

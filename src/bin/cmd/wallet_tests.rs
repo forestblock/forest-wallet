@@ -490,7 +490,7 @@ mod wallet_tests {
 			"-d",
 			&file_name,
 			"-g",
-			"Please give me your precious grins. Love, Yeast",
+			"Please give me your precious Forests. Love, Yeast",
 			"65",
 		];
 		execute_command(&app, test_dir, "wallet2", &client2, arg_vec)?;
